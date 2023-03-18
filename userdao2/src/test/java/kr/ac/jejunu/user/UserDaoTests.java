@@ -12,7 +12,7 @@ import static org.hamcrest.core.Is.is;
 
 public class UserDaoTests {
     @Test
-    public void get() throws ClassNotFoundException, SQLException {
+    public void get() throws SQLException, ClassNotFoundException {
         Long id = 1l;
         String name = "zeta";
         String password = "1234";
