@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class HallaConnetctionMaker implements ConnectionMaker {
+public class HallaConnetctionMaker implements DataSource {
     @Override
     public Connection getConnection() throws ClassNotFoundException, SQLException {
         //        //데이터 어딨어? mysql
