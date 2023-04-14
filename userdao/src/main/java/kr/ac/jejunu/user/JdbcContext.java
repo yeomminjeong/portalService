@@ -104,4 +104,37 @@ public class JdbcContext {
             }
         }
     }
+
+    User find(Object[] params, String sql) throws SQLException, ClassNotFoundException {
+        StatementStrategy statementStrategy = connection -> {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            for (int i = 0; i < params.length; i++) {
+                preparedStatement.setObject(i + 1, params[i]);
+            }
+            return preparedStatement;
+        };
+        return jdbcContextForFind(statementStrategy);
+    }
+
+    void insert(User user, String sql, Object[] params) throws SQLException, ClassNotFoundException {
+        StatementStrategy statementStrategy = connection -> {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
+            for (int i = 0; i < params.length; i++) {
+                preparedStatement.setObject(i + 1, params[i]);
+            }
+            return preparedStatement;
+        };
+        jdbcContextForInsert(user, statementStrategy);
+    }
+
+    void update(String sql, Object[] params) throws SQLException, ClassNotFoundException {
+        StatementStrategy statementStrategy = connection -> {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            for (int i = 0; i < params.length; i++) {
+                preparedStatement.setObject(i + 1, params[i]);
+            }
+            return preparedStatement;
+        };
+        jdbcContextForUpdate(statementStrategy);
+    }
 }

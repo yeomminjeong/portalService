@@ -1,7 +1,6 @@
 package kr.ac.jejunu.user;
 
 import java.sql.*;
-import javax.sql.DataSource;
 
 public class UserDao {
     private final JdbcContext jdbcContext;
@@ -10,33 +9,28 @@ public class UserDao {
         this.jdbcContext = jdbcContext;
     }
 
-    public User findById(Long id) throws ClassNotFoundException, SQLException {
-        StatementStrategy statementStrategy = new FindStatmentStrategy(id);
-        return jdbcContext.jdbcContextForFind(statementStrategy);
+    public User findById(Long id) throws SQLException, ClassNotFoundException {
+
+        Object[] params = new Object[]{id};
+        String sql = "select id, name, password from user where id = ?";
+        return jdbcContext.find(params, sql);
     }
 
     public void insert(User user) throws ClassNotFoundException, SQLException {
-        StatementStrategy statementStrategy = new InsertStatementStrategy(user);
-        jdbcContext.jdbcContextForInsert(user, statementStrategy);
+        String sql = "insert into user (name, password) values (?,?)";
+        Object[] params = new Object[]{user.getName(), user.getPassword()};
+        jdbcContext.insert(user, sql, params);
     }
 
     public void update(User user) throws SQLException, ClassNotFoundException {
-        StatementStrategy statementStrategy = new UpdateStatementStrategy(user);
-        jdbcContext.jdbcContextForUpdate(statementStrategy);
+        String sql = "update user set name = ?, password = ? where id = ?";
+        Object[] params = new Object[]{user.getName(), user.getPassword(), user.getId()};
+        jdbcContext.update(sql, params);
     }
 
     public void delete(Long id) throws SQLException, ClassNotFoundException {
-        StatementStrategy statementStrategy = new DeleteStatementStartegy(id);
-        jdbcContext.jdbcContextForUpdate(statementStrategy);
+        String sql = "delete from user where id = ?";
+        Object[] params = new Object[]{id};
+        jdbcContext.update(sql, params);
     }
-
-//    abstract public Connection getConnection() throws ClassNotFoundException, SQLException;
-//    public Connection getConnection() throws ClassNotFoundException, SQLException {
-//        //데이터 어딨어? mysql
-//        //mysql 클래스 로딩
-//        //Connection 맺고
-//        //쿼리 만들고
-//        return connectionMaker.getConnection();
-//    }
-
 }
