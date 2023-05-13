@@ -7,8 +7,6 @@ a
 0src/main/java/kr/ac/jejunu/user/JejuUserDao.java,6/9/69a35b9cbe47a20e3b5bb38958d37de1d2e21c34
 X
 (gradle/wrapper/gradle-wrapper.properties,f/b/fbe448ebfc3eb2d4e308f6b8b043666f5b57235e
-<
-build.gradle,f/0/f07866736216be0ee2aba49e392191aeae700a35
 j
 :src/main/java/kr/ac/jejunu/user/HallaConnetctionMaker.java,3/0/301bbb5fc730e3b8e69b209f62327edf13f209fb
 _
