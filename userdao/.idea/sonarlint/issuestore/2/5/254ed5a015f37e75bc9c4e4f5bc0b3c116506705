@@ -1,0 +1,20 @@
+
+g	java:S112b"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8Šž†¯ö0
+_
+java:S1163b"=Refactor this code to not throw exceptions in finally blocks.(Ò‚Òéüÿÿÿÿ8‹ž†¯ö0
+V
+java:S1143b"4Remove this throw statement from this finally block.(Ò‚Òéüÿÿÿÿ8‹ž†¯ö0
+l
+java:S2259`"OA "NullPointerException" could be thrown; "preparedStatement" is nullable here.(ÊÁ€ê8Âž†¯ö0
+d
+java:S2259E"GA "NullPointerException" could be thrown; "resultSet" is nullable here.(èå²×8Âž†¯ö0
+d
+java:S2259#"GA "NullPointerException" could be thrown; "resultSet" is nullable here.(èå²×8Âž†¯ö0
+›
+java:S1130"yRemove the declaration of thrown exception 'java.lang.ClassNotFoundException', as it cannot be thrown from method's body.(¶ìåÙøÿÿÿÿ8²Œ¡°ö0
+•
+java:S11307"yRemove the declaration of thrown exception 'java.lang.ClassNotFoundException', as it cannot be thrown from method's body.(äÝ°8·Œ¡°ö0
+›
+java:S1130V"yRemove the declaration of thrown exception 'java.lang.ClassNotFoundException', as it cannot be thrown from method's body.(úžÆéúÿÿÿÿ8ºŒ¡°ö0
+j
+java:S3252y"HUse static access with "java.sql.Statement" for "RETURN_GENERATED_KEYS".(Ú§“´ûÿÿÿÿ8±É¦ö÷0

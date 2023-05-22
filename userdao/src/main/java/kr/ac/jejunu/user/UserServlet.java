@@ -1,12 +1,17 @@
 package kr.ac.jejunu.user;
 
 import jakarta.servlet.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.io.IOException;
-public class UserServlet extends GenericServlet {
 
+@Controller("/servlet")
+public class UserServlet extends GenericServlet {
+    @Autowired
     private UserDao userDao;
 
     @Override
@@ -29,9 +34,6 @@ public class UserServlet extends GenericServlet {
         String name =
                 userDao.findById(Long.parseLong(req.getParameter("id")))
                         .getName();
-
-
-
         System.out.println("************* service ***************");
         StringBuffer stringBuffer = new StringBuffer();
         stringBuffer.append("<html>");
@@ -42,4 +44,5 @@ public class UserServlet extends GenericServlet {
         stringBuffer.append("</body>");
         stringBuffer.append("</html>");
         res.getWriter().println(stringBuffer.toString());
-    }}
+    }
+}
